@@ -1,0 +1,33 @@
+@url = http://localhost:3000/api/conductores
+
+
+###Ob###tener conductores
+GET {{url}}
+
+Obtener por id
+GET {{url}}/1
+###Crear conductores
+POST {{url}}
+Content-Type: application/json
+
+{
+    "nombre": "Abel",
+    "apellido": "Nieto",
+    "dni": 36555987,
+    "licencia": "activa",
+    "fecha_de_vencimiento": "2025/04/11"
+}
+
+###Actualizar conductores
+PUT {{url}}/1
+Content-Type: application/json
+
+{
+    "nombre": "Abel",
+    "apellido": "Nieto",
+    "dni": 36555987,
+    "licencia": "activa",
+    "fecha_de_vencimiento": "2025/04/11"
+}
+###Eliminar conductores
+DELETE {{url}}/2
