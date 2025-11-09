@@ -1,0 +1,31 @@
+@url = http://localhost:3000/api/usuarios
+
+
+###Obtener usuarios
+GET {{url}}
+
+Obtener por id
+GET {{url}}/1
+###Crear usuarios
+POST {{url}}
+Content-Type: application/json
+
+{
+    "nombre": "Mauro",
+    "email": "mauro@gmail.com",
+    "dni": 36555987,
+    "password_hash": "1236"
+}
+
+###Actualizar usuarios
+PUT {{url}}/1
+Content-Type: application/json
+
+{
+    "nombre": "Mauro",
+    "email": "mauro@gmail.com",
+    "dni": 36555987,
+    "password_hash": "1236"
+}
+###Eliminar usuarios
+DELETE {{url}}/2
