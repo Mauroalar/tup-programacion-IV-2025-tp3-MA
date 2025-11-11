@@ -1,9 +1,16 @@
-CREATE TABLE `vehiculo` (
+CREATE TABLE `viaje` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `marca` varchar(45) NOT NULL,
-  `modelo` varchar(45) NOT NULL,
-  `pantente` varchar(45) NOT NULL,
-  `año` int NOT NULL,
-  `capacidad_de_carga` int NOT NULL,
-  PRIMARY KEY (`id`)
+  `vehiculo_id` int NOT NULL,
+  `conductor_id` int NOT NULL,
+  `fecha_salida` date NOT NULL,
+  `fecha_llegada` date NOT NULL,
+  `origen` varchar(45) NOT NULL,
+  `destino` varchar(45) NOT NULL,
+  `kilometros` int NOT NULL,
+  `observaciones` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `viaje_conductorfk_idx` (`conductor_id`),
+  KEY `viaje_vehiculofk_idx` (`vehiculo_id`),
+  CONSTRAINT `viaje_conductorfk` FOREIGN KEY (`conductor_id`) REFERENCES `conductor` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT `viaje_vehiculofk` FOREIGN KEY (`vehiculo_id`) REFERENCES `vehiculo` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
