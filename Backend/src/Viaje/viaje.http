@@ -1,0 +1,35 @@
+@url = http://localhost:3000/api/viajes
+
+
+###Obtener viajes
+GET {{url}}
+
+###Obtener por id
+GET {{url}}/1
+###Crear viajes
+POST {{url}}
+Content-Type: application/json
+
+{
+    "vehiculo_id": 1,
+    "conductor_id": 1,
+    "fecha_salida": "2025-10-10",
+    "fecha_llegada": "2025-10-20",
+    "origen": "Brazil",
+    "destino": "Rio de Janeiro",
+    "kilometros": 2500,
+    "observaciones": "reservado"
+}
+
+
+###Actualizar viajes
+PUT {{url}}/1
+Content-Type: application/json
+
+{
+    "nombre": "Mauro",
+    "email": "mauro@gmail.com",
+    "password_hash": "Hola4444"
+}
+###Eliminar viajes
+DELETE {{url}}/2

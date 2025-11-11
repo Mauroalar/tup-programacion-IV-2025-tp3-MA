@@ -4,6 +4,7 @@ import { conectarDB } from "./src/config/db.js";
 import conductorRoute from "./src/Conductor/conductorRoute.js";
 import usuarioRoute from "./src/Usuario/usuarioRoute.js";
 import vehiculoRoute from "./src/Vehiculo/vehiculoRoute.js";
+import viajeRoute from "./src/Viaje/viajeRoute.js";
 
 conectarDB();
 
@@ -24,6 +25,7 @@ app.get("/", (req, res) => {
 app.use("/api/conductores", conductorRoute);
 app.use("/api/usuarios", usuarioRoute);
 app.use("/api/vehiculos", vehiculoRoute);
+app.use("/api/viajes", viajeRoute);
 
 
 app.listen(port, () => {
