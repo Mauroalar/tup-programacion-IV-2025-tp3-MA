@@ -1,12 +1,28 @@
 import express from "express";
-import { createUsuario, getAllUsuario, getUsuarioById } from "./usuarioController.js";
+import {
+  getAllUsuario,
+  getUsuarioById,
+  createUsuario,
+  updateUsuario,
+  deleteUsuario,
+} from "../Usuario/usuarioController.js";
+import {
+  validarUsuario,
+  validarId,
+  verificarValidaciones,
+} from "../Usuario/usuarioValidaciones.js";
 
 const router = express.Router();
 
 router.get("/", getAllUsuario);
-router.get("/:id", getUsuarioById);
-router.post("/", createUsuario);
-// router.put("/:id", validarAlumno, validarId("id"), verificarValidacion, updateAlumno);
-// router.delete("/:id", validarId("id"), verificarValidacion, deleteAlumno);
+
+router.get("/:id", validarId, verificarValidaciones, getUsuarioById);
+
+router.post("/", validarUsuario, verificarValidaciones, createUsuario);
+
+router.put("/:id", validarId, validarUsuario,  verificarValidaciones, updateUsuario);
+
+router.delete("/:id", validarId, verificarValidaciones, deleteUsuario);
+
 
 export default router;

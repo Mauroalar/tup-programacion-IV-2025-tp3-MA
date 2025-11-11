@@ -11,8 +11,8 @@ POST {{url}}
 Content-Type: application/json
 
 {
-    "nombre": "Hugo",
-    "email": "mauro@hotmail.com",
+    "nombre": "Mario",
+    "email": "lpaes@hotmail.com",
     "password": "Hola4444"
 }
 
@@ -22,8 +22,8 @@ Content-Type: application/json
 
 {
     "nombre": "Mauro",
-    "email": "mauro@gmail.com",
+    "email": "mauro@oulook.com",
     "password_hash": "Hola4444"
 }
 ###Eliminar usuarios
-DELETE {{url}}/2
+DELETE {{url}}/0
