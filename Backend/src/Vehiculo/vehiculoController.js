@@ -34,11 +34,11 @@ export async function getVehiculoById (req, res) {
 export async function createVehiculo (req, res) {
     const { marca, modelo, patente} = req.body;
     const año = Number(req.body.año);
-    const capacidad_carga = Number(req.body.capacidad_carga);
+    const capacidad = Number(req.body.capacidad_carga);
 
 
-    const [resultVehiculo] = await db.execute("INSERT INTO vehiculo (marca, modelo, patente, año, capacidad_carga) VALUES(?, ?, ?, ?, ?)" ,[
-        marca, modelo, patente, año, capacidad_carga
+    const [resultVehiculo] = await db.execute("INSERT INTO vehiculo (marca, modelo, patente, año, capacidad_de_carga) VALUES(?, ?, ?, ?, ?)" ,[
+        marca, modelo, patente, año, capacidad
     ]);
 
     if(resultVehiculo.affectedRows === 0){
@@ -49,8 +49,8 @@ export async function createVehiculo (req, res) {
     }
 
     res.json({
-        succes: true,
-        data: {id: resultVehiculo.insertId, marca, modelo, patente, año, capacidad_carga},
+        success: true,
+        data: {id: resultVehiculo.insertId, marca, modelo, patente, año, capacidad},
         message: "vehiculo creado creado con exito."
     });
 
