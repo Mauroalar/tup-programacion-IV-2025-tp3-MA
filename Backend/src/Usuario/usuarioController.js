@@ -1,4 +1,5 @@
 import { db } from "../config/db.js";
+import bcrypt from "bcrypt";
 
 export async function getAllUsuario (req, res) {
     const [resultUsuario] = await db.execute("SELECT * FROM usuario");
