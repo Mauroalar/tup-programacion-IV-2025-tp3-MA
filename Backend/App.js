@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import { conectarDB } from "./src/config/db.js";
 import conductorRoute from "./src/Conductor/conductorRoute.js";
+import usuarioRoute from "./src/Usuario/usuarioRoute.js";
+import vehiculoRoute from "./src/Vehiculo/vehiculoRoute.js";
 
 conectarDB();
 
@@ -20,6 +22,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/conductores", conductorRoute);
+app.use("/api/usuarios", usuarioRoute);
+app.use("/api/vehiculos", vehiculoRoute);
 
 
 app.listen(port, () => {

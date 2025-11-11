@@ -1,0 +1,34 @@
+@url = http://localhost:3000/api/vehiculos
+
+
+###Ob###tener vehiculos
+GET {{url}}
+
+###Obtener por id
+GET {{url}}/1
+###Crear vehiculos
+POST {{url}}
+Content-Type: application/json
+
+{
+    "marca": "Toyota",
+    "modelo": "Corolla",
+    "patente": "abcd",
+    "año": 2025,
+    "capacidad_carga": 200
+}
+
+###Actualizar vehiculos
+PUT {{url}}/1
+Content-Type: application/json
+
+{
+    "marca": "Toyota",
+    "modelo": "Corolla",
+    "patente": "abcd",
+    "año": 2025,
+    "capacidad_carga": 200
+}
+
+###Eliminar vehiculos
+DELETE {{url}}/2

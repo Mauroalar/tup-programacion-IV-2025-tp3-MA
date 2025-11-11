@@ -1,7 +1,7 @@
 import { db } from "../config/db.js";
 
 export async function getAllUsuario (req, res) {
-    const [resultUsuario] = await db.execute("SELECT * FROM conductor");
+    const [resultUsuario] = await db.execute("SELECT * FROM usuario");
 
     res.json({
         succes: true,
@@ -25,18 +25,18 @@ export async function getUsuarioById (req, res) {
     }
 
     res.json({
-        succes: true,
-        conductor: resultUsuario
+        success: true,
+        usuario: resultUsuario
     })
 
 }
 
 export async function createUsuario (req, res) {
-    const { nombre, email,  } = req.body;
+    const { nombre, email, password } = req.body;
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
-    const [result] = await db.execute(
+    const [resultUsuario] = await db.execute(
       "INSERT INTO usuario (nombre, email, password_hash) VALUES (?,?,?)",
       [ nombre, email, hashedPassword]
     );
@@ -49,8 +49,8 @@ export async function createUsuario (req, res) {
     }
 
     res.json({
-        succes: true,
-        data: {id: resultUsuario.insertId, nombre, email, password_hash},
+        success: true,
+        data: {id: resultUsuario.insertId, nombre, email, password_hash: hashedPassword},
         message: "Usuario creado creado con exito."
     });
     
