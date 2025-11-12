@@ -4,30 +4,30 @@
 ###Ob###tener conductores
 GET {{url}}
 
-Obtener por id
+###Obtener por id
 GET {{url}}/1
 ###Crear conductores
 POST {{url}}
 Content-Type: application/json
 
 {
-    "nombre": "Abel",
-    "apellido": "Nieto",
-    "dni": 36555987,
+    "nombre": "Luis",
+    "apellido": "Palz",
+    "dni": 37881369,
     "licencia": "activa",
-    "fecha_de_vencimiento": "2025/04/11"
+    "fecha_de_vencimiento": "2025-06-11"
 }
 
 ###Actualizar conductores
-PUT {{url}}/1
+PUT {{url}}/4
 Content-Type: application/json
 
 {
-    "nombre": "Abel",
-    "apellido": "Nieto",
-    "dni": 36555987,
+    "nombre": "franco",
+    "apellido": "Pass",
+    "dni": 37881269,
     "licencia": "activa",
-    "fecha_de_vencimiento": "2025/04/11"
+    "fecha_de_vencimiento": "2025/06/11"
 }
 ###Eliminar conductores
 DELETE {{url}}/2

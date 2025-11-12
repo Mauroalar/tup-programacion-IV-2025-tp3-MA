@@ -54,3 +54,49 @@ export async function createConductor (req, res) {
     });
 
 }
+
+export async function updateConductor (req, res) {
+    const id = Number(req.params.id);
+    const { nombre, apellido, licencia, fecha_de_vencimiento } = req.body;
+    const dni = Number(req.body.dni);
+
+    const [resultConductor] = await db.execute("INSERT INTO conductor (nombre, apellido, dni, licencia, fecha_de_vencimiento) VALUES(?, ?, ?, ?, ?)" ,[
+        nombre, apellido, dni, licencia, fecha_de_vencimiento
+    ]);
+
+    if(resultConductor.affectedRows === 0){
+        return res.status(400).json({
+            success: false,
+            message: "No se puedo modificar el conductor."
+        });
+    }
+
+    res.json({
+        succes: true,
+        data: {id: resultConductor.insertId, nombre, apellido, dni, licencia, fecha_de_vencimiento},
+        message: "Conductor modificado con exito."
+    });
+    
+
+}
+
+export async function deleteConductor (req, res) {
+    const id = Number(req.params.id);
+
+    const [resultConductor] = await db.execute("DELETE FROM conductor WHERE id = ?" ,[
+        id
+    ]);
+
+    if(resultConductor.affectedRows === 0){
+        return res.status(400).json({
+            success: false,
+            message: "No se encontro vehiculo con ese id."
+        })
+    }
+
+    res.json({
+        success: true,
+        message: resultConductor
+    })
+
+}
