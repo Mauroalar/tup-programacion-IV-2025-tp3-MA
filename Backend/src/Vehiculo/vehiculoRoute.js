@@ -1,12 +1,28 @@
 import express from "express";
-import { createVehiculo, getAllVehiculo, getVehiculoById } from "./vehiculoController.js";
+import {
+  getAllVehiculo,
+  getVehiculoById,
+  createVehiculo,
+  updateVehiculo,
+  deleteVehiculo,
+} from "../Vehiculo/vehiculoController.js";
+import {
+  validarVehiculo,
+  validarId,
+  verificarValidaciones,
+} from "../Vehiculo/vehiculoValidaciones.js";
 
 const router = express.Router();
 
 router.get("/", getAllVehiculo);
-router.get("/:id", getVehiculoById);
-router.post("/", createVehiculo);
-// router.put("/:id", validarAlumno, validarId("id"), verificarValidacion, updateAlumno);
-// router.delete("/:id", validarId("id"), verificarValidacion, deleteAlumno);
+
+router.get("/:id", validarId, verificarValidaciones, getVehiculoById);
+
+router.post("/", validarVehiculo, verificarValidaciones, createVehiculo);
+
+router.put("/:id", validarId, validarVehiculo,  verificarValidaciones, updateVehiculo);
+
+router.delete("/:id", validarId, verificarValidaciones, deleteVehiculo);
+
 
 export default router;

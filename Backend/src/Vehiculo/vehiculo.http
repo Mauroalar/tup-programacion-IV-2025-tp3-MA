@@ -11,11 +11,11 @@ POST {{url}}
 Content-Type: application/json
 
 {
-    "marca": "Toyota",
-    "modelo": "Corolla",
-    "patente": "abcd",
-    "año": 2025,
-    "capacidad_carga": 200
+    "marca": "volkswagen",
+    "modelo": "polotrack",
+    "patente": "bcda",
+    "año": 2024,
+    "capacidad": 195
 }
 
 ###Actualizar vehiculos
@@ -26,9 +26,9 @@ Content-Type: application/json
     "marca": "Toyota",
     "modelo": "Corolla",
     "patente": "abcd",
-    "año": 2025,
-    "capacidad_carga": 200
+    "año": 2023,
+    "capacidad": 190
 }
 
 ###Eliminar vehiculos
-DELETE {{url}}/2
+DELETE {{url}}/7
