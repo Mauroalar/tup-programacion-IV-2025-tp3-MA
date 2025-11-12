@@ -15,9 +15,9 @@ Content-Type: application/json
     "conductor_id": 1,
     "fecha_salida": "2025-10-10",
     "fecha_llegada": "2025-10-20",
-    "origen": "Brazil",
-    "destino": "Rio de Janeiro",
-    "kilometros": 2500,
+    "origen": "Colombia",
+    "destino": "Mdellin",
+    "kilometros": 8000,
     "observaciones": "reservado"
 }
 
@@ -32,4 +32,4 @@ Content-Type: application/json
     "password_hash": "Hola4444"
 }
 ###Eliminar viajes
-DELETE {{url}}/2
+DELETE {{url}}/1
