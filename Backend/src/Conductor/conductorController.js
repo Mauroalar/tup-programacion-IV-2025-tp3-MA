@@ -4,7 +4,7 @@ export async function getAllConductor (req, res) {
     const [resultConductor] = await db.execute("SELECT * FROM conductor");
 
     res.json({
-        succes: true,
+        success: true,
         conductor: resultConductor
     });
 
@@ -25,7 +25,7 @@ export async function getConductorById (req, res) {
     }
 
     res.json({
-        succes: true,
+        success: true,
         conductor: resultConductor
     })
 
@@ -48,7 +48,7 @@ export async function createConductor (req, res) {
     }
 
     res.json({
-        succes: true,
+        success: true,
         data: {id: resultConductor.insertId, nombre, apellido, dni, licencia, fecha_de_vencimiento},
         message: "Conductor creado creado con exito."
     });
@@ -60,8 +60,8 @@ export async function updateConductor (req, res) {
     const { nombre, apellido, licencia, fecha_de_vencimiento } = req.body;
     const dni = Number(req.body.dni);
 
-    const [resultConductor] = await db.execute("INSERT INTO conductor (nombre, apellido, dni, licencia, fecha_de_vencimiento) VALUES(?, ?, ?, ?, ?)" ,[
-        nombre, apellido, dni, licencia, fecha_de_vencimiento
+    const [resultConductor] = await db.execute("UPDATE conductor SET nombre = ?, apellido = ?, dni = ?, licencia = ?, fecha_de_vencimiento = ? WHERE id = ?" ,[
+        nombre, apellido, dni, licencia, fecha_de_vencimiento, id
     ]);
 
     if(resultConductor.affectedRows === 0){
@@ -72,8 +72,8 @@ export async function updateConductor (req, res) {
     }
 
     res.json({
-        succes: true,
-        data: {id: resultConductor.insertId, nombre, apellido, dni, licencia, fecha_de_vencimiento},
+        success: true,
+        data: {id, nombre, apellido, dni, licencia, fecha_de_vencimiento},
         message: "Conductor modificado con exito."
     });
     
