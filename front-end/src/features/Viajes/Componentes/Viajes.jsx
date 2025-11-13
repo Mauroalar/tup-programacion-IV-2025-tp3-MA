@@ -6,10 +6,10 @@ import { Link } from "react-router";
 export const Viaje = () => {
     const { fetchAuth } = useAuth();
 
-  const [Viaje, setViaje] = useState([]);
+  const [Viajes, setViajes] = useState([]);
   const [buscar, setBuscar] = useState("");
 
-  const fetchViaje = useCallback(
+  const fetchViajes = useCallback(
     async (buscar) => {
       const searchParams = new URLSearchParams();
 
@@ -18,7 +18,7 @@ export const Viaje = () => {
       }
 
       const response = await fetchAuth(
-        "http://localhost:3000/api/viaje" +
+        "http://localhost:3000/api/viajes" +
           (searchParams.size > 0 ? "?" + searchParams.toString() : "")
       );
       const data = await response.json();
@@ -29,41 +29,41 @@ export const Viaje = () => {
       }
 
       console.log(data)
-      setViaje(data.conductor);
+      setViajes(data.viaje);
     },
     [fetchAuth]
   );
 
   useEffect(() => {
-    fetchViaje();
-  }, [fetchViaje]);
+    fetchViajes();
+  }, [fetchViajes]);
 
   const handleQuitar = async (id) => {
-    // Preguntar si quiere quitar el viaje
-    if (window.confirm("¿Desea quitar el usuario?")) {
-      // Pedir a la api que quite el viaje
-      const response = await fetchAuth(`http://localhost:3000/api/viaje/${id}`, {
+    // Preguntar si quiere quitar el Viajes
+    if (window.confirm("¿Desea quitar el Viajes?")) {
+      // Pedir a la api que quite el Viajes
+      const response = await fetchAuth(`http://localhost:3000/api/viajes/${id}`, {
         method: "DELETE",
       });
       const data = await response.json();
 
       if (!response.ok || !data.success) {
-        return window.alert("Error al quitar viaje");
+        return window.alert("Error al quitar Viajes");
       }
 
-      await fetchViaje();
+      await fetchViajes();
     }
   };
 
   return (
     <article>
-      <h2>Viaje</h2>
-        <Link role="button" to="/Viaje/crear">
-          Nuevo viaje
+      <h2>Viajes</h2>
+        <Link role="button" to="/Viajes/crear">
+          Nuevo Viajes
         </Link>
       <div className="group">
         <input value={buscar} onChange={(e) => setBuscar(e.target.value)} />
-        <button onClick={() => fetchViaje(buscar)}>Buscar</button>
+        <button onClick={() => fetchViajes(buscar)}>Buscar</button>
       </div>
       <table>
         <thead>
@@ -80,7 +80,7 @@ export const Viaje = () => {
           </tr>
         </thead>
         <tbody>
-          {Viaje.map((u) => (
+          {Viajes.map((u) => (
             <tr key={u.id}>
               <td>{u.id}</td>
               <td>{u.vehiculo_id}</td>
@@ -93,11 +93,11 @@ export const Viaje = () => {
               <td>{u.observaciones}</td>
               <td>
                 <div>
-                  <Link role="button" to={`/Viaje/${u.id}`}>
+                  <Link role="button" to={`/Viajes/${u.id}`}>
                     Ver
                   </Link>
                   
-                    <Link role="button" to={`/Viaje/${u.id}/modificar`}>
+                    <Link role="button" to={`/Viajes/${u.id}/modificar`}>
                       Modificar
                     </Link>
                     <button onClick={() => handleQuitar(u.id)}>Quitar</button>
