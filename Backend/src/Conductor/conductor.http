@@ -27,7 +27,7 @@ Content-Type: application/json
     "apellido": "Pass",
     "dni": 37881269,
     "licencia": "activa",
-    "fecha_de_vencimiento": "2025/06/11"
+    "fecha_de_vencimiento": "2025-06-11"
 }
 ###Eliminar conductores
 DELETE {{url}}/2
