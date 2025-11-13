@@ -5,6 +5,7 @@ import conductorRoute from "./src/Conductor/conductorRoute.js";
 import usuarioRoute from "./src/Usuario/usuarioRoute.js";
 import vehiculoRoute from "./src/Vehiculo/vehiculoRoute.js";
 import viajeRoute from "./src/Viaje/viajeRoute.js";
+import authRouter from "./src/context/authRoute.js";
 
 conectarDB();
 
@@ -26,6 +27,7 @@ app.use("/api/conductores", conductorRoute);
 app.use("/api/usuarios", usuarioRoute);
 app.use("/api/vehiculos", vehiculoRoute);
 app.use("/api/viajes", viajeRoute);
+app.use("/api/login", authRouter);
 
 
 app.listen(port, () => {

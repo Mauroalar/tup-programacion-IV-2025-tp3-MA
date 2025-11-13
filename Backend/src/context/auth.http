@@ -1,0 +1,11 @@
+@url = http://localhost:3000/api/login
+
+
+###Crear usuario
+POST {{url}}
+Content-Type: application/json
+
+{
+    "email": "lolo@gmail.com",
+    "password": "Hola4242"
+}
