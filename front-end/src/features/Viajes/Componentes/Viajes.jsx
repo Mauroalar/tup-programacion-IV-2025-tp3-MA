@@ -55,6 +55,11 @@ export const Viaje = () => {
     }
   };
 
+  const resultKilometros = Viajes.map((v) => (
+    {id:v.conductor_id , kilometros: v.kilometros}
+
+  ));
+  
   return (
     <article>
       <h2>Viajes</h2>
@@ -77,6 +82,7 @@ export const Viaje = () => {
             <th>Destino</th>
             <th>Kilometros</th>
             <th>Obervaciones</th>
+            <th>Kilometros por Conductor</th>
           </tr>
         </thead>
         <tbody>
@@ -91,6 +97,11 @@ export const Viaje = () => {
               <td>{u.destino}</td>
               <td>{u.kilometros}</td>
               <td>{u.observaciones}</td>
+              <td>
+                {resultKilometros
+                  .filter(km => km.id === u.conductor_id)
+                  .reduce((ac, km) => ac + Number(km.kilometros), 0)}
+              </td>
               <td>
                 <div>
                   <Link role="button" to={`/Viajes/${u.id}`}>
