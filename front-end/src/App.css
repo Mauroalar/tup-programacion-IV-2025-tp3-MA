@@ -1,42 +1,31 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+/* Contenedor principal centrado */
+.app-container {
+  max-width: 800px;
+  margin: auto;
   padding: 2rem;
-  text-align: center;
+  text-align: center; /* Centra el título, imagen y textos */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Imagen centrada con tamaño moderado */
+.app-image {
+  width: 120px;
+  margin: 1rem auto;
+  display: block;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Párrafo más ancho pero legible */
+.app-description {
+  text-align: justify; /* Justifica el texto */
+  margin: 1.5rem auto;
+  max-width: 700px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Botón estilo Pico pero personalizado */
+.btn-logout {
+  margin-top: 1.5rem;
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+/* Título de la sección usuarios */
+.usuarios-title {
+  margin-top: 2rem;
 }
