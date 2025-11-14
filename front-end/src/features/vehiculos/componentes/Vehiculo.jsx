@@ -14,7 +14,7 @@ export const Vehiculo = () => {
       const searchParams = new URLSearchParams();
 
       if (buscar) {
-        searchParams.append("buscar", buscar);
+        searchParams.append("consulta", buscar);
       }
 
       const response = await fetchAuth(
@@ -87,10 +87,10 @@ export const Vehiculo = () => {
               <td>{u.capacidad_de_carga}</td>
               <td>
                 <div>
-                  <Link role="button" to={`/Vehiculos/${u.id}`}>
+                  {/* <Link role="button" to={`/Vehiculos/${u.id}`}>
                     Ver
                   </Link>
-                  
+                   */}
                     <Link role="button" to={`/Vehiculos/${u.id}/modificar`}>
                       Modificar
                     </Link>
