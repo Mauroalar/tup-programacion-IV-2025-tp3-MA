@@ -38,7 +38,7 @@ export const validarVehiculo = [
 
   body("año")
     .isNumeric()
-    .withMessage("El nombre solo puede contener numeros.")
+    .withMessage("El año solo puede contener numeros.")
     .isLength({ max: 10 })
     .withMessage("El año no puede tener más de 10 caracteres."),  
 

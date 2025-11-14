@@ -19,7 +19,7 @@ Content-Type: application/json
 }
 
 ###Actualizar vehiculos
-PUT {{url}}/5
+PUT {{url}}/1
 Content-Type: application/json
 
 {
@@ -27,7 +27,7 @@ Content-Type: application/json
     "modelo": "yaris",
     "patente": "abcd",
     "año": 2023,
-    "capacidad": 190
+    "capacidad": 500
 }
 
 ###Eliminar vehiculos

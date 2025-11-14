@@ -59,7 +59,7 @@ export async function updateVehiculo (req, res) {
     const id = Number(req.params.id);
     const { marca, modelo, patente} = req.body;
     const año = Number(req.body.año);
-    const capacidad = Number(req.body.capacidad_carga);
+    const capacidad = Number(req.body.capacidad);
 
     const [resultVehiculo] = await db.execute(
       "UPDATE vehiculo SET marca = ?, modelo = ?, patente = ?, año = ?, capacidad_de_carga = ? WHERE id = ?",
