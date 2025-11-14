@@ -26,7 +26,7 @@ export const validarLogin = [
       minLowercase: 1,
       minUppercase: 1,
       minNumbers: 1,
-      minSymbols: 0,
+      minSymbols: 1,
     })
     .withMessage(
       "La contraseña debe tener al menos 8 caracteres y contener letras y números."
