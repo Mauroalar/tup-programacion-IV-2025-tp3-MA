@@ -1,12 +1,19 @@
 import { db } from "../config/db.js";
 
 export async function getAllVehiculo (req, res) {
-    const [resultVehiculo] = await db.execute("SELECT * FROM vehiculo");
+    const consulta = (req.query.consulta)
 
-    res.json({
-        success: true,
-        vehiculo: resultVehiculo
-    });
+    if (!consulta) {
+        const [resultVehiculo] = await db.execute("SELECT * FROM vehiculo")
+        return res
+        .status(200)
+        .json({success: true, vehiculo : resultVehiculo})
+    } else {
+       const [resultVehiculo] = await db.execute("SELECT * FROM vehiculo WHERE marca = ? ", [consulta])
+       return res
+       .status(200)
+       .json({success:true, vehiculo : resultVehiculo}) 
+    }
 
 }
 
