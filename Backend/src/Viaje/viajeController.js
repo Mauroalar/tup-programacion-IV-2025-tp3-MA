@@ -25,7 +25,7 @@ export async function getViajeById (req, res) {
     }
 
     res.json({
-        succes: true,
+        success: true,
         vehiculo: resultViaje
     })
 
@@ -51,7 +51,9 @@ export async function createViaje (req, res) {
         });
     }
 
+
     res.json({
+        resultViaje,
         success: true,
         data: {id: resultViaje.insertId, vehiculoId, conductorId, fechaSalida, fechaLlegada, origen, destino, kilometros, observaciones},
         message: "viaje creado creado con exito."
@@ -69,8 +71,8 @@ export async function updateViaje (req, res) {
     const kilometros = Number(req.body.kilometros);
 
 
-    const [resultViaje] = await db.execute("INSERT INTO viaje (vehiculo_id, conductor_id, fecha_salida, fecha_llegada, origen, destino, kilometros, observaciones) VALUES(?, ?, ?, ?, ?, ?, ?, ?)" ,[
-        vehiculoId, conductorId, fechaSalida, fechaLlegada, origen, destino, kilometros, observaciones
+    const [resultViaje] = await db.execute("UPDATE viaje SET vehiculo_id = ?, conductor_id = ?, fecha_salida = ?, fecha_llegada = ?, origen = ?, destino = ?, kilometros = ?, observaciones = ? WHERE id = ?" ,[
+        vehiculoId, conductorId, fechaSalida, fechaLlegada, origen, destino, kilometros, observaciones, id
     ]);
 
     if(resultViaje.affectedRows === 0){
@@ -82,7 +84,7 @@ export async function updateViaje (req, res) {
 
     res.json({
         success: true,
-        data: {id: resultViaje.insertId, vehiculoId, conductorId, fechaSalida, fechaLlegada, origen, destino, kilometros, observaciones},
+        data: {id, vehiculoId, conductorId, fechaSalida, fechaLlegada, origen, destino, kilometros, observaciones},
         message: "viaje modificado con exito."
     });
 
