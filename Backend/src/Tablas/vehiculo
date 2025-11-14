@@ -2,7 +2,7 @@ CREATE TABLE `vehiculo` (
   `id` int NOT NULL AUTO_INCREMENT,
   `marca` varchar(45) NOT NULL,
   `modelo` varchar(45) NOT NULL,
-  `pantente` varchar(45) NOT NULL,
+  `patente` varchar(45) NOT NULL,
   `año` int NOT NULL,
   `capacidad_de_carga` int NOT NULL,
   PRIMARY KEY (`id`)
