@@ -11,25 +11,31 @@ POST {{url}}
 Content-Type: application/json
 
 {
-    "vehiculo_id": 1,
-    "conductor_id": 1,
-    "fecha_salida": "2025-10-10",
-    "fecha_llegada": "2025-10-20",
-    "origen": "Colombia",
-    "destino": "Mdellin",
-    "kilometros": 8000,
+    "vehiculo_id": 5,
+    "conductor_id": 2,
+    "fecha_salida": "2025-10-26",
+    "fecha_llegada": "2025-10-28",
+    "origen": "tucuman",
+    "destino": "salta",
+    "kilometros": 2000,
     "observaciones": "reservado"
 }
 
 
 ###Actualizar viajes
-PUT {{url}}/1
+PUT {{url}}/8
 Content-Type: application/json
 
 {
-    "nombre": "Mauro",
-    "email": "mauro@gmail.com",
-    "password_hash": "Hola4444"
+    "vehiculo_id": 5,
+    "conductor_id": 2,
+    "fecha_salida": "2025-10-26",
+    "fecha_llegada": "2025-10-28",
+    "origen": "chubut",
+    "destino": "salta",
+    "kilometros": 4000,
+    "observaciones": "reservado"
 }
+
 ###Eliminar viajes
 DELETE {{url}}/1
