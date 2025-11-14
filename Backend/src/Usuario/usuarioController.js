@@ -6,7 +6,7 @@ export async function getAllUsuario (req, res) {
     const [resultUsuario] = await db.execute("SELECT * FROM usuario");
 
     res.json({
-        succes: true,
+        success: true,
         usuario: resultUsuario.map((u)=> ({...u, password_hash: undefined}))
     });
 
