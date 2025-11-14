@@ -87,9 +87,6 @@ export const Conductor = () => {
               <td>{u.fecha_de_vencimiento}</td>
               <td>
                 <div>
-                  <Link role="button" to={`/Conductores/${u.id}`}>
-                    Ver
-                  </Link>
                   
                     <Link role="button" to={`/Conductores/${u.id}/modificar`}>
                       Modificar
