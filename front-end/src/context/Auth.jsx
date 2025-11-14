@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     setError(null);
-    console.log(email, password)
+  
     try {
       const response = await fetch("http://localhost:3000/api/login", {
         method: "POST",
