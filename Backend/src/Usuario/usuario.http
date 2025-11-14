@@ -11,19 +11,19 @@ POST {{url}}
 Content-Type: application/json
 
 {
-    "nombre": "Mario",
-    "email": "lpaes@hotmail.com",
-    "password": "Hola4444"
+    "nombre": "MarioLuis",
+    "email": "luispaes@hotmail.com",
+    "password": "Hola444!."
 }
 
 ###Actualizar usuarios
-PUT {{url}}/1
+PUT {{url}}/3
 Content-Type: application/json
 
 {
-    "nombre": "Mauro",
-    "email": "mauro@oulook.com",
-    "password_hash": "Hola4444"
+    "nombre": "Marcos",
+    "email": "marcos@gmail.com",
+    "password": "HoLa!1040"
 }
 ###Eliminar usuarios
 DELETE {{url}}/0
