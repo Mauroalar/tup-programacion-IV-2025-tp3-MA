@@ -13,7 +13,9 @@ import { Conductor } from "./features/Conductores/Componentes/Conductores.jsx";
 import { CreateConductor } from "./features/Conductores/Componentes/ConductoresCread.jsx";
 import { ModificarConductor } from "./features/Conductores/Componentes/ConductoresMod.jsx";
 import { Viaje } from "./features/Viajes/Componentes/Viajes.jsx";
+import { CreateViaje } from "./features/Viajes/Componentes/ViajesCread.jsx";
 import { AuthPage } from "./context/Auth.jsx";
+import { ModificarViaje } from "./features/Viajes/Componentes/ViajesMod.jsx";
 
 createRoot(document.getElementById("root")).render(
   <AuthProvider>
@@ -33,6 +35,8 @@ createRoot(document.getElementById("root")).render(
             <Route path="/conductores/:id/modificar" element={<ModificarConductor/>}/>
             <Route path="/vehiculos/:id/modificar" element={<ModificarVehiculo/>}/>
             <Route path="/viajes" element={<Viaje/>}/>
+            <Route path="/viajes/crear" element={<CreateViaje/>}/>
+            <Route path="/viajes/:id/modificar" element={<ModificarViaje/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
