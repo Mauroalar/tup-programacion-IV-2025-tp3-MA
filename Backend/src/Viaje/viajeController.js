@@ -1,13 +1,21 @@
 import { db } from "../config/db.js";
 
 export async function getAllViaje (req, res) {
-    const [resultViaje] = await db.execute("SELECT * FROM viaje");
+    const consul = (req.query.consul)
+    console.log(consul)
 
-    res.json({
-        success: true,
-        viaje: resultViaje
-    });
+    if(!consul) {
+        const [resultViaje] = await db.execute("SELECT * FROM viaje")
+        return res
+        .status(200)
+        .json({success: true, viaje: resultViaje})
 
+    } else {
+        const [resultViaje] = await db.execute("SELECT * FROM viaje WHERE vehiculo_id = ? " , [consul])
+        return res
+        .status(200)
+        .json({success: true, viaje: resultViaje})
+    }
 }
 
 export async function getViajeById (req, res) {
