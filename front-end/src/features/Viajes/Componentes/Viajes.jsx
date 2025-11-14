@@ -14,7 +14,7 @@ export const Viaje = () => {
       const searchParams = new URLSearchParams();
 
       if (buscar) {
-        searchParams.append("buscar", buscar);
+        searchParams.append("consul", buscar);
       }
 
       const response = await fetchAuth(
@@ -104,10 +104,10 @@ export const Viaje = () => {
               </td>
               <td>
                 <div>
-                  <Link role="button" to={`/Viajes/${u.id}`}>
+                  {/* <Link role="button" to={`/Viajes/${u.id}`}>
                     Ver
                   </Link>
-                  
+                   */}
                     <Link role="button" to={`/Viajes/${u.id}/modificar`}>
                       Modificar
                     </Link>
