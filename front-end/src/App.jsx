@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "./App.css"
 
 export function App() {
   const [session, setSession] = useState(null);
@@ -26,35 +26,33 @@ export function App() {
   };
 
   return (
-    <>
-      <h1>React+login</h1>
-      {!session && (
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="nombre">Usuario:</label>
-          <input
-            name="nombre"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
-          />
-          <label htmlFor="password">Contraseña:</label>
-          <input
-            name="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button type="submit">Ingresar</button>
-        </form>
-      )}
-      {session && (
-        <>
-          <button onClick={() => setSession(null)}>Salir</button>
-          <h2>Contador</h2>
-          <Contador />
-          <h2>Usuarios</h2>
-          <Usuarios token={session.token} />
-        </>
-      )}
-    </>
-  );
+  <div className="app-container">
+    <h1>APLICACION DE GESTION DE VEHICULOS, CONDUCTORES Y VIAJES</h1>
+
+    <img
+      className="app-image"
+      src="https://iconsvg.co/icon/08dbb3ce-0f59-4660-86da-597ea669c7a1.svg"
+      alt="auto"
+    />
+
+    <p className="app-description">
+      La aplicación fue diseñada para optimizar el control operativo de una empresa de transporte. 
+      La plataforma permite registrar y administrar de manera eficiente los vehículos disponibles, 
+      sí como la información de cada conductor. Además, ofrece herramientas completas para gestionar 
+      los viajes realizados, facilitando la creación, modificación y eliminación de registros. 
+      Con una interfaz clara y funcional, la aplicación centraliza todos los datos en un solo sistema, 
+      mejorando la organización interna y permitiendo un seguimiento más preciso de las actividades de 
+      transporte.
+    </p>
+
+    {session && (
+      <>
+        <button className="btn-logout" onClick={() => setSession(null)}>Salir</button>
+        <h2 className="usuarios-title">Usuarios</h2>
+        <Usuarios token={session.token} />
+      </>
+    )}
+  </div>
+);
+
 }
