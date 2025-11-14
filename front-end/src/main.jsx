@@ -8,6 +8,7 @@ import { Route, Routes, BrowserRouter } from "react-router";
 import { Layout } from "./features/Layout/Layout.jsx";
 import { Vehiculo } from "./features/vehiculos/componentes/Vehiculo.jsx";
 import { Conductor } from "./features/Conductores/Componentes/Conductores.jsx";
+import { ModificarConductor } from "./features/Conductores/Componentes/ConductoresMod.jsx";
 import { Viaje } from "./features/Viajes/Componentes/Viajes.jsx";
 import { AuthPage } from "./context/Auth.jsx";
 
@@ -24,6 +25,7 @@ createRoot(document.getElementById("root")).render(
                 </AuthPage>
             }/>
             <Route path="/conductores" element={<Conductor/>}/>
+            <Route path="/conductores/:id/modificar" element={<ModificarConductor/>}/>
             <Route path="/viajes" element={<Viaje/>}/>
           </Route>
         </Routes>
