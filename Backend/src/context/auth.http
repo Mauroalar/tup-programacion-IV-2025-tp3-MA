@@ -6,6 +6,6 @@ POST {{url}}
 Content-Type: application/json
 
 {
-    "email": "lolo@gmail.com",
-    "password": "Hola4242"
+    "email": "luispaes@hotmail.com",
+    "password": "Hola444!."
 }
