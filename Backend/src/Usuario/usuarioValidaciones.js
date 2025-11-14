@@ -28,14 +28,13 @@ export const validarUsuario = [
     .isEmail({host_whitelist: ["gmail.com", "hotmail.com"]})
     .withMessage("Dominio de correo no permitido. Solo Gmail o Hotmail."),
 
-  body("password", "Contraseña inválida")
-    .isStrongPassword({
-      minLength: 8,
-      minLowercase: 1,
-      minUppercase: 0,
-      minNumbers: 1,
-      minSymbols: 0,
-    })
+  body("password", "Contraseña inválida").isStrongPassword({
+    minLength: 8, // Minimo de 8 caracteres
+    minLowercase: 1, // Al menos una letra en minusculas
+    minUppercase: 0, // Letras mayusculas opcionales
+    minNumbers: 1, // Al menos un número
+    minSymbols: 0, // Símbolos opcionales
+  })
     .withMessage(
       "La contraseña debe tener al menos 8 caracteres y contener letras y números."
     ),
