@@ -66,8 +66,8 @@ export async function updateUsuario (req, res) {
     const hashedPassword = await bcrypt.hash(password, 12);
 
     const [resultUsuario] = await db.execute(
-      "INSERT INTO usuario (nombre, email, password_hash) VALUES (?,?,?)",
-      [ nombre, email, hashedPassword]
+      "UPDATE usuario SET nombre = ?, email = ?, password_hash = ? WHERE id = ?",
+      [ nombre, email, hashedPassword, id]
     );
 
     if(resultUsuario.affectedRows === 0){
@@ -79,7 +79,7 @@ export async function updateUsuario (req, res) {
 
     res.json({
         success: true,
-        data: {id: resultUsuario.insertId, nombre},
+        data: {id, nombre},
         message: "Usuario creado modificar con exito."
     });
     
