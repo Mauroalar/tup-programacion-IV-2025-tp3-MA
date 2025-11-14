@@ -7,6 +7,7 @@ import { AuthProvider } from "./context/Auth.jsx";
 import { Route, Routes, BrowserRouter } from "react-router";
 import { Layout } from "./features/Layout/Layout.jsx";
 import { Vehiculo } from "./features/vehiculos/componentes/Vehiculo.jsx";
+import { CreateVehiculo } from "./features/vehiculos/componentes/VehiculoCread.jsx";
 import { ModificarVehiculo } from "./features/vehiculos/componentes/VehiculoMod.jsx";
 import { Conductor } from "./features/Conductores/Componentes/Conductores.jsx";
 import { CreateConductor } from "./features/Conductores/Componentes/ConductoresCread.jsx";
@@ -26,6 +27,7 @@ createRoot(document.getElementById("root")).render(
                   <Vehiculo/>
                 </AuthPage>
             }/>
+            <Route path="/vehiculos/crear" element={<CreateVehiculo/>}/>
             <Route path="/conductores" element={<Conductor/>}/>
             <Route path="/conductores/crear" element={<CreateConductor/>}/>
             <Route path="/conductores/:id/modificar" element={<ModificarConductor/>}/>
