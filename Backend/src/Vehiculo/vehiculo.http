@@ -19,12 +19,12 @@ Content-Type: application/json
 }
 
 ###Actualizar vehiculos
-PUT {{url}}/1
+PUT {{url}}/5
 Content-Type: application/json
 
 {
     "marca": "Toyota",
-    "modelo": "Corolla",
+    "modelo": "yaris",
     "patente": "abcd",
     "año": 2023,
     "capacidad": 190

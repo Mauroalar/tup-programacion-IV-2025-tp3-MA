@@ -25,7 +25,7 @@ export async function getVehiculoById (req, res) {
     }
 
     res.json({
-        succes: true,
+        success: true,
         vehiculo: resultVehiculo
     })
 
@@ -35,7 +35,6 @@ export async function createVehiculo (req, res) {
     const { marca, modelo, patente} = req.body;
     const año = Number(req.body.año);
     const capacidad = Number(req.body.capacidad);
-
 
     const [resultVehiculo] = await db.execute("INSERT INTO vehiculo (marca, modelo, patente, año, capacidad_de_carga) VALUES(?, ?, ?, ?, ?)" ,[
         marca, modelo, patente, año, capacidad
@@ -63,8 +62,8 @@ export async function updateVehiculo (req, res) {
     const capacidad = Number(req.body.capacidad_carga);
 
     const [resultVehiculo] = await db.execute(
-      "INSERT INTO vehiculo (marca, modelo, patente, año, capacidad_de_carga) VALUES (?,?,?,?,?)",
-      [marca, modelo, patente, año, capacidad]
+      "UPDATE vehiculo SET marca = ?, modelo = ?, patente = ?, año = ?, capacidad_de_carga = ? WHERE id = ?",
+      [marca, modelo, patente, año, capacidad, id]
     );
 
     if(resultVehiculo.affectedRows === 0){
@@ -76,7 +75,7 @@ export async function updateVehiculo (req, res) {
 
     res.json({
         success: true,
-        data: {id: resultVehiculo.insertId,  marca, modelo, patente, año, capacidad},
+        data: {id, marca, modelo, patente, año, capacidad},
         message: "Vehiculo modificado con exito."
     });
     
