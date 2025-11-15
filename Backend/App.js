@@ -6,6 +6,7 @@ import usuarioRoute from "./src/Usuario/usuarioRoute.js";
 import vehiculoRoute from "./src/Vehiculo/vehiculoRoute.js";
 import viajeRoute from "./src/Viaje/viajeRoute.js";
 import authRouter from "./src/context/authRoute.js";
+import { authConfig } from "./src/context/auth.js";
 
 conectarDB();
 
@@ -14,6 +15,8 @@ const port = 3000;
 
 // Para interpretar body como JSON
 app.use(express.json());
+
+authConfig()
 
 // Habilito CORS
 app.use(cors());
