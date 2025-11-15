@@ -1,4 +1,5 @@
 import express from "express";
+import { verificarAutenticacion } from "../context/auth.js";
 import {
   getAllConductor,
   getConductorById,
@@ -14,15 +15,15 @@ import {
 
 const router = express.Router();
 
-router.get("/", getAllConductor);
+router.get("/", verificarAutenticacion, getAllConductor);
 
-router.get("/:id", validarId, verificarValidaciones, getConductorById);
+router.get("/:id", verificarAutenticacion, validarId, verificarValidaciones, getConductorById);
 
-router.post("/", validarConductor, verificarValidaciones, createConductor);
+router.post("/", verificarAutenticacion, validarConductor, verificarValidaciones, createConductor);
 
-router.put("/:id", validarId, validarConductor,  verificarValidaciones, updateConductor);
+router.put("/:id", verificarAutenticacion, validarId, validarConductor,  verificarValidaciones, updateConductor);
 
-router.delete("/:id", validarId, verificarValidaciones, deleteConductor);
+router.delete("/:id", verificarAutenticacion, validarId, verificarValidaciones, deleteConductor);
 
 
 export default router;
