@@ -16,6 +16,7 @@ import { Viaje } from "./features/Viajes/Componentes/Viajes.jsx";
 import { CreateViaje } from "./features/Viajes/Componentes/ViajesCread.jsx";
 import { AuthPage } from "./context/Auth.jsx";
 import { ModificarViaje } from "./features/Viajes/Componentes/ViajesMod.jsx";
+import { Register } from "./features/Login/Componente/Register.jsx";
 
 createRoot(document.getElementById("root")).render(
   <AuthProvider>
@@ -29,14 +30,47 @@ createRoot(document.getElementById("root")).render(
                   <Vehiculo/>
                 </AuthPage>
             }/>
-            <Route path="/vehiculos/crear" element={<CreateVehiculo/>}/>
-            <Route path="/conductores" element={<Conductor/>}/>
-            <Route path="/conductores/crear" element={<CreateConductor/>}/>
-            <Route path="/conductores/:id/modificar" element={<ModificarConductor/>}/>
-            <Route path="/vehiculos/:id/modificar" element={<ModificarVehiculo/>}/>
-            <Route path="/viajes" element={<Viaje/>}/>
-            <Route path="/viajes/crear" element={<CreateViaje/>}/>
-            <Route path="/viajes/:id/modificar" element={<ModificarViaje/>}/>
+            <Route path="/vehiculos/crear" element={
+                <AuthPage>
+                  <CreateVehiculo/>
+                </AuthPage>
+            }/>
+            <Route path="/conductores" element={
+              <AuthPage>
+                <Conductor/>
+              </AuthPage>
+            }/>
+            <Route path="/conductores/crear" element={
+              <AuthPage>
+                <CreateConductor/>
+              </AuthPage>
+            }/>
+            <Route path="/conductores/:id/modificar" element={
+              <AuthPage>
+                <ModificarConductor/>
+              </AuthPage>
+            }/>
+            <Route path="/vehiculos/:id/modificar" element={
+              <AuthPage>
+                <ModificarVehiculo/>
+              </AuthPage>
+            }/>
+            <Route path="/viajes" element={
+              <AuthPage>
+                <Viaje/>
+              </AuthPage>
+            }/>
+            <Route path="/viajes/crear" element={
+              <AuthPage>
+                <CreateViaje/>
+              </AuthPage>
+            }/>
+            <Route path="/viajes/:id/modificar" element={
+              <AuthPage>
+                <ModificarViaje/>
+              </AuthPage>
+            }/>
+            <Route path="/register" element={<Register/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
