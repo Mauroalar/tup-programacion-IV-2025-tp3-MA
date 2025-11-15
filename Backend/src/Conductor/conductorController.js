@@ -1,12 +1,15 @@
 import { db } from "../config/db.js";
 
 export async function getAllConductor (req, res) {
-    const [resultConductor] = await db.execute("SELECT * FROM conductor");
+    const consulta = (req.query.consulta)
 
-    res.json({
-        success: true,
-        conductor: resultConductor
-    });
+    if (!consulta) {
+        const [resultConductor] = await db.execute("SELECT * FROM conductor");
+        return res.status(200).json({success:true, conductor : resultConductor})
+    } else {
+        const [resultConductor] = await db.execute("SELECT * FROM conductor WHERE nombre = ?", [consulta])
+        return res.status(200).json({success: true, conductor : resultConductor})
+    }
 
 }
 
