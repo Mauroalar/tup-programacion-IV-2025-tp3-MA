@@ -14,7 +14,7 @@ export const Conductor = () => {
       const searchParams = new URLSearchParams();
 
       if (buscar) {
-        searchParams.append("buscar", buscar);
+        searchParams.append("consulta", buscar);
       }
 
       const response = await fetchAuth(
