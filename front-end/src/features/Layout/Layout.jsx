@@ -29,7 +29,12 @@ export const Layout = () => {
           {isAuthenticated ? (
             <button onClick={() => logout()}>Salir</button>
           ) : (
-            <Ingresar />
+            <>
+              <Ingresar />
+            <Link type="button" to="/register">
+              Registrar
+            </Link>
+            </>
           )}
         </li>
       </nav>
